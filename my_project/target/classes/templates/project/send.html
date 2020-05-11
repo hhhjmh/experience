@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dashboard Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="asserts/css/dashboard.css" th:href="@{/asserts/css/dashboard.css}" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+</head>
+<body>
+
+<div th:replace="commons/bars::topbar"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="commons/bars::#sidebar(activeurl='send')"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="jumbotron">
+                <h1 class="display-4">项目介绍</h1>
+                <p class="lead">项目工具： Springboot bootstrap thymeleaf mail mysql</p>
+                <hr class="my-4">
+                <p>本项目是一个基于Springboot框架搭建的jar工程，前端框架为bootstrap,并用thymeleaf代替了传统的jsp来对数据进行处理，使用了mysql完成
+                数据库的链接，并且通过spring-boot-starter-mail完成邮件系统，使得可以将整个项目中的项目经历全部发送到你的邮箱中。
+                </p>
+                <form th:action="@{/sendEmail}" method="post">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email 地址</label>
+                        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <small id="emailHelp" class="form-text text-muted">我们永远不会和别人分享你的电子邮件</small>
+                        <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+                    </div>
+                    <button type="submit" class="btn btn-primary">发送</button>
+                </form>
+            </div>
+
+        </main>
+    </div>
+</div>
+</body>
+</html>

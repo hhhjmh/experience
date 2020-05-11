@@ -1,0 +1,4 @@
+com\ji\my_project\MyProjectApplication.class
+com\ji\my_project\controller\MyController.class
+com\ji\my_project\config\myconfig.class
+com\ji\my_project\bean\User.class
