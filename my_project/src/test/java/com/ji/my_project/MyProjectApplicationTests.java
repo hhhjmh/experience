@@ -22,13 +22,13 @@ class MyProjectApplicationTests {
     void test03() throws IOException {
 
 
-        InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream("static/SpringLearning.md");
-        System.out.println(resourceAsStream);
-
-        BufferedReader br=new BufferedReader(new InputStreamReader(resourceAsStream));
-        String s="";
-        while((s=br.readLine())!=null)
-            System.out.println(s);
+//        InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream("static/SpringLearning.md");
+//        System.out.println(resourceAsStream);
+//
+//        BufferedReader br=new BufferedReader(new InputStreamReader(resourceAsStream));
+//        String s="";
+//        while((s=br.readLine())!=null)
+//            System.out.println(s);
 
 //        File file = new File(this.getClass().getResource("/static/SpringLearning.md").getPath());
 //        System.out.println(file);

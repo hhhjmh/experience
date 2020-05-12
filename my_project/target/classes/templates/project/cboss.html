@@ -49,39 +49,22 @@
         <div th:replace="commons/bars::#sidebar(activeurl='cboss')"></div>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <h2><a class="btn btn-sm btn-success" th:href="@{/emp}">add employee</a></h2>
-            <div class="table-responsive">
-                <table class="table table-striped table-sm">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>lastName</th>
-                        <th>email</th>
-                        <th>gender</th>
-                        <th>department</th>
-                        <th>birth</th>
-                        <th>operation</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="emp:${emps}">
-                        <td th:text="${emp.id}"></td>
-                        <td th:text="${emp.lastName}"></td>
-                        <td th:text="${emp.email}"></td>
-                        <td th:text="${emp.gender}=='0'? '女':'男'"></td>
-                        <td th:text="${emp.department.departmentName}"></td>
-                        <td th:text="${#dates.format(emp.birth, 'yyyy-MM-dd hh:mm')}"></td>
-                        <td>
-                            <a class="btn btn-sm btn-primary" th:href="@{/emp/}+${emp.id}">编辑</a>
-
-                            <button th:attr="del_uri=@{/emp/}+${emp.id}" class="btn btn-sm btn-danger deleteBtn">删除</button>
-
-
-                        </td>
-                    </tr>
-
-                    </tbody>
-                </table>
+            <div class="card text-center">
+                <div class="card-header">
+                    Featured
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">CBOSS 移动公司的中间件</h5>
+                    <p class="card-text">鉴于这个公司的保密协议我不能粘贴代码上去，所以就简述一下这个后台项目的功能，这个项目需要完成一些
+                        移动公司移交来的任务，主要对工程师的要求是写一些接口功能以实现省公司和移动公司的交互，并将文档中的属性使用bean类声明，
+                        同时还要将这些存入Oracle数据库，此外再提交代码前进行单元测试，并查看Oracle中有没有修改好相应的文件属性，然后接口负责
+                        调用省公司的数据库，将获取到的数据封装成json字符串返回给移动公司。
+                    </p>
+                    <a th:href="@{/send}" class="btn btn-primary">发送文件</a>
+                </div>
+                <div class="card-footer text-muted">
+                    技术栈： ssm Oracle junit
+                </div>
             </div>
         </main>
     </div>
